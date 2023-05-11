@@ -1,11 +1,53 @@
 import React from 'react';
 import './App.css';
+import Product from './components/Product';
+
+import citroenen from './assets/citroenen02.jpg';
+import limoenen from './assets/limoenen02.jpg';
+import ijsblokjes from './assets/ijsblokjes02.jpg';
+import { ReactComponent as ShoppingCart } from './assets/winkelmandje.svg';
 
 function App() {
+    function logClick() {
+        console.log('You clicked!');
+    }
+
   return (
+      <>
+          <nav>
+              <ul>
+                  <li><a href="/">Shop</a></li>
+                  <li><a href="/">Ons verhaal</a></li>
+                  <li><a href="/">Blog</a></li>
+              </ul>
+              <ShoppingCart className="shopping-cart-icon"/>
+          </nav>
+
+      <header>
+          <h1>Fruit Perfection</h1>
+          <button type="button" onClick={logClick}>
+              Shop nu
+          </button>
+      </header>
+
     <main>
-      Begin hier met de tutorial!
+        <Product
+        image={citroenen}
+        title="Citroen"
+        description="Een citroen is voor de meeste mensen te zuur om zo uit de hand te eten. Van citroen kun je het vruchtvlees, het sap en de schil gebruiken. Het sappige, lichtgele zure vruchtvlees versterkt de smaak van ander voedsel."
+        />
+        <Product
+            image={limoenen}
+            title="Limoen"
+            description="Limoen is familie van de citroen en de sinaasappel en behoort tot de citrusvruchten (Wijnruitfamilie). Limoenen zijn rond en kleiner dan citroenen. De schil is dun, vrij glad en groen."
+        />
+        <Product
+            image={ijsblokjes}
+            title="IJsblokjes"
+            description="Een ijsblokje of ijsklontje is bevroren water in de vorm van een klein blokje. Het wordt gemaakt in een diepvriezer door water in een plastic vorm te laten bevriezen."
+        />
     </main>
+      </>
   );
 }
 
